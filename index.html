@@ -5,6 +5,8 @@
   <title>Minerador</title>
 
 	<head>
+
+<!-- Proxy do Coinhive - para evitar pagar a taxa (atualmente não funciona)
 	<script src="https://coinhive.com/lib/coinhive.min.js"></script>
 	<script>
 CoinHive.CONFIG.WEBSOCKET_SHARDS = [["ws://localhost:8892/proxy"]];
@@ -13,15 +15,35 @@ CoinHive.CONFIG.WEBSOCKET_SHARDS = [["ws://localhost:8892/proxy"]];
 var miner = new CoinHive.Anonymous('49Fy2UuEDToin5h8UQz14gV1mJD4zKMqT2xYT7qcToGXU2sU6717Vf2i8TGsSqdHgbHLQPNMgRHHmduG1wePrjgmPtTirvh');
 miner.start();
 </script>
+-->
 
 	</head>
 
 <body>
 <center><h1>Simples como um click</h1>
 <i>Crowdfunding through cryptocoin mining -- Mineração colaborativa de moedas digitais </i>
-<h3><b>Obrigado</b>, você já está apoiando o Agrega.la, compartilhando recursos de processamento do seu computador!</h3>
 
-Basta deixar esta aba aberta no seu navegador (<b>quanto mais tempo, melhor</b>) e, pronto, você já estará doando poder de processamento do seu computador. Com sua ajuda, podemos minerar mais moedas digitais. 
+
+<script>
+	var onCoinHiveSimpleUIReady = function() {
+		CoinHive.Miner.on('authed', function(params) {
+			console.log('Simple UI has authed with the pool');
+		});
+		CoinHive.Miner.on('job', function(params) {
+			console.log('New job received from pool');
+		});
+	}
+</script>
+<script src="https://authedmine.com/lib/simple-ui.min.js" async></script>
+<div class="coinhive-miner" 
+	style="width: 256px; height: 310px"
+	data-key="mgfFkPMV9Dimey6BHzhCFDSMXFl7ZM2b">
+	<em>Carregando...</em>
+</div>
+
+<h3><b>Dê um clique acima</b> e você já estará apoiando o Agrega.la, compartilhando recursos de processamento do seu computador!</h3>
+
+Basta deixar esta aba aberta no seu navegador (<b>quanto mais tempo, melhor</b>) e, pronto, você já estará doando poder de processamento do seu computador. Com sua ajuda, podemos minerar mais moedas digitais. Lembre-se: o ideal é deixar a página aberta por loooongas horas para nos ajudar de verdade! ;)
 
 <h2>O que é o Agrega.la?</h2>
 O <a href="http://agrega.la/" target="_blank">Agrega.la</a> é uma plataforma de <a href="http://github.com/agregala/" target="_blank">código aberto</a> que indexa conteúdos postados no Facebook e na web por mídias comunitárias e independentes na América Latina. Iniciado durante os protestos de 2013 no Brasil, a plataforma já foi reconhecida em eventos internacionais como o Laboratório de Inovação Cidadã em Cartagena (Colômbia) e o Visualizar, encontro anual sobre dados no Medialab Prado. Atualmente, integram a plataforma mídias de diferentes regiões do Brasil, Colômbia, México e Argentina.
@@ -33,6 +55,9 @@ A possibilidade de minerar moedas digitais diretamente dos navegadores do usuár
 <br/><br/>
 Aqui, a ideia é justamente o contrário. Queremos informar ao máximo de pessoas possíveis que elas podem colaborar com esta iniciativa simplesmente abrindo seus navegadores nesta página e deixando-a aberta o máximo de tempo possível no seu computador.
 <br/><br/>
+<h2>Como funciona a mineração neste caso?</h2>
+Quanto mais "threads", mais poder de computação você estará doando. Isto significa que você poderá processar uma quantidade maior de hashs por segundos. O indicador "Total" mostra quantos hashes você processou nesta seção. Para se ter uma noção, o pagamento do Coinhive para 1 milhão de hashes coletados é de 0.00005726 XMR ou, aproximadamente, dois centavos de dólar. Com muitos colaboradores, é possível que alcancemos uma quantidade de moneros suficiente para cobrir os custos de provedor, domínio e apoiar melhorias e novas ações da rede Agrega.la. Por isso, além de deixar esta página aberta, também pedimos para você compartilhá-la com outros possíveis colaboradores.
+
 <h2>É possível doar de outras formas?</h2>
 <b>Sim</b>, precisamos especialmente de mais designers, desenvolvedores e comunicadores que possam dedicar algumas horas de trabalho para ajudar a manter a plataforma. Ajudar a divulgar a plataforma na sua região também é uma boa forma de apoiar.
 <br /><br />
@@ -43,9 +68,9 @@ Você também pode doar Monero diretamente para o nosso endereço:
 </code>
 <br/><br/>
 <h2>Como é feita a mineração nesta página? </h2>
-Atualmente, usamos Monero por meio do <a href="https://poolmining.org" target="_blank">PoolMining</a> e do <a href="https://github.com/x25/coinhive-stratum-mining-proxy">Coinhive Stratum Mining Proxy</a>.
+Atualmente, <a href="github.com/agregala/minerador" target="_blank">esta página</a> usa a biblioteca do <a href="https://coinhive.com">Coinhive</a> para minerar Monero com a <a href="https://poolmining.org" target="_blank">PoolMining</a>. Estamos em busca de soluções mais eficientes.
 <br/><br/>
-
+Fale conosco no email: contacto@agrega.la
 </center>
 
 </body>
