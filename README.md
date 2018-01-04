@@ -1,2 +1,5 @@
 # minerador
-Mineração colaborativa para manutenção da plataforma
+Crowdfunding through crypto mining
+
+Mineração colaborativa para manutenção da plataforma Agrega.la
+
